@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="rp">
+        <input type="text" placeholder="이름을 입력하세요">
+        <input type="password" placeholder="비밀번호를 입력하세요">
+        <input type="text" placeholder="이메일을 입력하세요">
+        <button id="btnRegister">회원가입</button>
+    </div>
+    <script>
+        let socket = new io();
+
+        let nameInput = document.querySelector("#rp > input:nth-child(1)");
+        let passInput = document.querySelector("#rp > input:nth-child(2)");
+        let emailInput = document.querySelector("#rp > input:nth-child(3)");
+        //1줄이든 1000이든 
+        document.querySelector("#btnRegister").addEventListener("click", e =>{
+            
+            socket.emit("register", {
+                name:nameInput.value,
+                pass:passInput.value,
+                email:emailInput.value
+            });
+        });
+
+        socket.on("msg", data => {
+            alert(data.msg);
+        });
+        //회원가입 버튼을 누르면 이름, 비밀번호, 이메일을 받아서
+        // socket을 통해 register란 신호로 쏴준다.
+        // console.log(result[0])를 찍어봐라 affectedRows:1이면 
+
+    </script>
+</body>
+</html>

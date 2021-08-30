@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/app.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/App.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-bar">
+            <button class = "btn btn-blue" id="btnRank">랭킹조회</button>
+        </div>
+        <div id="rankPopup">
+            <h2>랭킹 조회</h2>
+        </div>
+        <div class="page-container">
+            <div id="loginPage" class="page">
+                <h2 class="mb-20">로그인</h2>
+                <div class="login-form form mb-20">
+                    <input type="text" id="loginEmail" class="form-control" placeholder="이메일을 입력하세요">
+                    <input type="password" id="loginPassword" class="form-control" placeholder="비밀번호를 입력하세요">
+                    <button id="btnLogin" class="btn btn-blue">로그인</button>
+                </div>
+
+                <h2 class="mb-20">회원가입</h2>
+                <div class="register-form form">
+                    <input class="form-control" id="registerEmail" type="text" placeholder="이메일을 입력하세요">
+                    <input class="form-control" id="registerName" type="text" placeholder="이름을 입력하세요">
+                    <input class="form-control" id="registerPass" type="password" placeholder="비밀번호를 입력하세요">
+                    <input class="form-control" id="registerPassConfirm" type="password" placeholder="비밀번호 확인을 입력하세요">
+                    <button class="btn btn-red" id="btnRegister">회원가입</button>
+                </div>
+            </div>
+
+            <div id="lobbyPage" class="page">
+                <h2>로비 페이지</h2>
+                <div id="roomListBox">
+                    <div class="room">가짜 방입니다.</div>
+                    <div class="room">가짜 방입니다.</div>
+                    <div class="room">가짜 방입니다.</div>
+                    <div class="room">진짜 방입니다.</div>
+                    <div class="room">가짜 방입니다.</div>
+                </div>
+                <div class="button-row">
+                    <button id="btnCreateRoom" class="btn btn-blue">방생성</button>
+                    <button id="btnRefreshRoom" class="btn btn-red">새로고침</button>
+                </div>
+            </div>
+            
+            <div id="gamePage" class="page">
+                <h2>게임페이지</h2>
+                <div class="game-container">
+                    <div id="gameOverBox">
+                        <h2 class="title">Game Over</h2>
+                        <button class="btn btn-red" id="btnLobby">로비로</button>
+                    </div>
+                    <div class="game-box">
+                        <canvas id="gameCanvas" width="354" height="704"></canvas>
+                    </div>
+                    <div class="info-box">
+                        <div class="row-box">
+                            <div class="next-block">
+                                <canvas id="nextCanvas" width="100" height="100"></canvas>    
+                            </div>
+                            <div class="score-box">
+                                0 점
+                            </div>
+                        </div>
+
+                        <button id="btnStart">게임시작</button>
+
+                        <div id="otherGame">
+                            <canvas id="otherCanvas" width="100" height="200">
+                                
+                            </canvas>
+                        </div>
+
+                    </div>
+
+                    <div class="chat-box">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

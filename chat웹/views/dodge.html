@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/dodge/app.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <canvas width="600" height="400" id="gameCanvas"></canvas>
+    </div>
+    <div class="container">
+        <button class="btn" id="gameStart">재시작</button>
+    </div>
+
+<div id="popup">
+    <div class="inner">
+        <input type="text" class="form-control" id="name" placeholder="이름 입력">
+        <textarea class="form-control" rows="3" id="msg" placeholder="남길말 입력"></textarea>
+        <button class="btn" id="btnSave">저장</button>
+        <button class="btn" id="btnCancel">취소</button>
+    </div>
+</div>
+
+    <script src="/dodge/js/InputSystem.js"></script>
+    <script src="/dodge//js/Vector2.js"></script>
+    <script src="/dodge//js/Player.js"></script>
+    <script src="/dodge//js/Bullet.js"></script>
+    <script src="/dodge//js/App.js"></script>
+
+    <script>
+        let app = new App("#gameCanvas");
+        document.querySelector("#gameStart").addEventListener("click", e => {
+            app.gameStart();
+        });
+
+        
+    </script>
+</body>
+</html>

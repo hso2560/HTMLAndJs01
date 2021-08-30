@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+
+<body>
+    <div id="gameContainer">
+    <canvas id="gameCanvas" width="960" height="480"></canvas>
+    </div>
+    <button id="startBtn" class="btn">게임시작</button>
+    <input type="color" id="colorPicker">
+    <input type="number" id="penSize">
+    <input type="radio" name="mode" id="draw" checked>그리기
+    <input type="radio" name="mode" id="remove">지우기
+    <script src2="/Draw.js"></script>
+    <script src="/Loop.js"></script>
+    <!-- <input typ="radio" name="mode" value="2">지우기 -->
+
+    <script>
+       
+        // canvas.addEventListener("click",function(e){console.log(e.offsetX,e.offsetY);
+        // console.log(cp.value);
+        // ctx.fillStyle= cp.value;
+        // ctx.fillRect(e.offsetX,e.offsetY,10,10)});
+
+        // ctx.strokeStyle="rgba(250,0,0.5)";
+        // ctx.strokeRect(20,20,100,100);
+        // ctx.fillStyle="rgba(0,255,0,0.5)";
+        // ctx.fillRect(150,20,100,100);
+
+        // ctx.beginPath();
+        // ctx.moveTo(400,220);
+        // ctx.lineTo(300,150);
+        // ctx.lineTo(200,230);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.moveTo(770,220);
+        // ctx.lineTo(650,100);
+        // ctx.lineTo(550,230);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.moveTo(350,356);
+        // ctx.lineTo(490,400);
+        // ctx.lineTo(600,356);
+        // ctx.fill();
+        // ctx.close();
+
+        // let a=10;
+        // let b="10";
+        // if(a==b) console.log("같다");
+        // else console.log("다르다");
+        //alert("Hello World");
+        //console.log("Hello World");
+        // let arr=[1,2,3,4,5,6,7,8,9,10];
+        // let sum=arr.filter(x=>x%2==0).reduce((s,v)=>s+v,0);
+        // console.log(sum);
+    </script>
+</body>
+</html>
