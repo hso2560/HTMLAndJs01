@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas{
+            border: 1px solid #ddd
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class = "canvas-container">
+            <canvas width="640" height ="480" id="myCanvas"></canvas>
+        </div>
+        <div class = "button-row">
+            <input type="color" id="colorPicker">
+            <input type="range" min ="1" max="20", id="widthSlider">
+        </div>
+    </div>
+
+    
+
+    <script>
+        let canvas = document.querySelector("#myCanvas");
+        let colorPicker = document.querySelector("#colorPicker");
+        let widthSlider = document.querySelector("#widthSlider");
+
+        let ctx = canvas.getContext("2d"); //2D 그리는 도구 가져와
+
+        let isDraw = false;
+        let before = {x:0, y:0};
+
+        canvas.addEventListener("mousedown",e=>{
+            ctx.lineWidth = widthSlider.value;
+            ctx.strokeStyle = colorPicker.value;
+            isDraw = true;
+            ctx.lineCap = "round";
+            let {offsetX:x, offsetY:y} = e;  //x,y변수에 할당
+            before = {x,y};  // == {x:x,y:y}
+        });
+        canvas.addEventListener("mouseup",(e)=>{
+            isDraw=false;
+        });
+
+        canvas.addEventListener("mousemove",function(e){
+            if(isDraw){
+                let {offsetX:x, offsetY:y} = e;
+                ctx.beginPath();
+                ctx.moveTo(before.x,before.y);
+                ctx.lineTo(x,y);
+                ctx.stroke();
+                before = {x,y};
+            }
+        });
+
+        // ctx.beginPath();
+        // ctx.moveTo(320,240);
+        // ctx.lineTo(400,240);
+        // ctx.lineTo(400,300);
+        // ctx.closePath();
+        // ctx.fillStyle = 'rgba(255,0,0,0.3)';
+        // ctx.strokeStyle = '#f00';
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.moveTo(300,240);
+        // ctx.lineTo(100,240);
+        // ctx.lineTo(100,300);
+        // ctx.fill();
+
+        // drawLine(100,100,200,100);
+        // drawLine(400,100,500,100);
+        // drawLine(250,150,300,180);
+        // drawLine(300,180,350,150);
+        // drawLine(350,150,250,150);
+
+        // function drawLine(sx, sy, ex,  ey)
+        // {
+        //     ctx.beginPath();
+        //     ctx.moveTo(sx,sy);
+        //     ctx.lineTo(ex,ey);
+        //     ctx.stroke();
+        // }
+    </script>
+</body>
+</html>
