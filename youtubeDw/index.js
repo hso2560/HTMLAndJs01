@@ -12,11 +12,21 @@ app.listen(port, () => {
 
 app.get('/download', (req,res) => {
 
-var URL = req.query.URL;
+let URL = req.query.URL;
+let title = Math.random()*100000; //req.query.title;
 
-res.header('Content-Disposition', 'attachment; filename="video.mp4"');
-ytdl(URL, {
-    format: 'mp4'
-    }).pipe(res);
+console.log('download');
 
+//mp4
+// res.header('Content-Disposition', `attachment; filename="${title}.mp4`);
+// ytdl(URL, {
+//     format: 'mp4'
+//     }).pipe(res);
+  
+//mp3
+res.setHeader('Content-Disposition', `attachment; filename="${title}.mp3"`);
+ytdl(URL,{
+    "format":'mp3',
+    "quality":'lowest'
+}).pipe(res);
 });
